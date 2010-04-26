@@ -1,5 +1,10 @@
 # Django settings for djragon_cms project.
 
+import os
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -44,19 +49,18 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+# For right now, we just use a simple structure with no staticfiles app
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'xpva8t5)!lyo)$s2foayc@n2%li2gs%hi%)4sm!yknwl4pi3hd'
@@ -79,9 +83,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'djragon_cms.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, "templates"),
 )
 
 INSTALLED_APPS = (

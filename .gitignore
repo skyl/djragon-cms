@@ -1,0 +1,6 @@
+src
+env
+pip-log.txt
+*.swp
+*.pyc
+dev.db

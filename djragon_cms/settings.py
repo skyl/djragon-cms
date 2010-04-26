@@ -96,4 +96,11 @@ INSTALLED_APPS = (
 
     'feincms',
     'mptt',
+    'feincms.module.page',
+
+    'dcms', # our central swiss-army app
 )
+
+
+FEINCMS_ADMIN_MEDIA = '/media/feincms/'
+TINYMCE_JS_URL = '/media/tinymce/tiny_mce.js'

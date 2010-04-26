@@ -1,4 +1,3 @@
 -e svn+http://code.djangoproject.com/svn/django/trunk#egg=Django-trunk
 #http://github.com/matthiask/feincms.git
 #http://github.com/matthiask/django-mptt
-

@@ -2,7 +2,6 @@ from django.db import models
 
 from django.utils.translation import ugettext_lazy as _
 
-
 # Feincms particulars see:
 # http://www.feinheit.ch/media/labs/feincms/page.html
 from feincms.module.page.models import Page
@@ -14,7 +13,7 @@ from feincms.content.medialibrary.models import MediaFileContent
 from feincms.content.application.models import ApplicationContent
 from feincms.content.raw.models import RawContent
 from feincms.content.rss.models import RSSContent
-
+from feincms.content.comments.models import CommentsContent
 
 Page.register_extensions(
     'changedate',
@@ -44,14 +43,18 @@ Page.create_content_type(MediaFileContent, POSITION_CHOICES=(
         ('left', _('left')),
         ('right', _('right')),
     ))
+
 Page.create_content_type(ImageContent, POSITION_CHOICES=(
         ('block', _('block')),
         ('left', _('left')),
         ('right', _('right')),
     ))
+
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
         ('news.urls', 'News application'),
     ))
+
+Page.create_content_type(CommentsContent)
 
 '''
 # http://www.feinheit.ch/media/labs/feincms/page.html#adding-another-content-type

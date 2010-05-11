@@ -18,16 +18,51 @@
     </div>
     {% endcomment %}
 
-    <div id="navigation">
-    {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
-    {% for p in sublevel %}
-        <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
-    {% endfor %}
+    <div id="main-nav">
+        <h3>UpTo 3 level navigation</h3>
+        {% feincms_navigation of feincms_page as mainp level=1,depth=1 %}
+        <ul>
+        {% for p in mainp %}
+            <li>
+                <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+                {% if p.children.all %}<ul>
+                {% for sub in p.children.all %}
+                    <li>
+                        <a href="{{ sub.get_absolute_url }}">{{ sub.title }}</a>
+                        {% if sub.children.all %}<ul>
+                        {% for subsub in sub.children.all %}
+                            <li><a href="{{ subsub.get_absolute_url }}">{{ subsub.title }}</a></li>
+                        {% endfor %}
+                        </ul>{% endif %}
+                    </li>
+                {% endfor %}
+                </ul>{% endif %}
+            </li>
+        {% endfor %}
+        </ul>
     </div>
 
+    <!-- Possible alternate nav schemes 
+    <div id="full-nav">
+        <h3>full_tree_for_model</h3>
+        {% full_tree_for_model page.Page as pages %}
+        {% for p in pages %}
+            <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+        {% endfor %}
+
+        <h3>drilldown_tree_for_node</h3>
+        {% drilldown_tree_for_node feincms_page as drilldown %}
+        {% for p in drilldown %}
+            <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+        {% endfor %}
+    </div>
+    -->
+
     <div id="breadcrumbs">
+    <h3>breadcrumbs</h3>
+    <!--
     {% feincms_parentlink of feincms_page level=1 %} 
-    <!-- or perhaps -->
+    or, better yet: -->
     {% feincms_breadcrumbs feincms_page %}
     </div>
 

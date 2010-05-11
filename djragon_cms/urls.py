@@ -14,10 +14,13 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    #(r'^news/', include('news.urls')),
 )
 
 urlpatterns += patterns('',
-            url(r'^$|^(.*)/$', 'feincms.views.base.handler'),
+    #url(r'^$|^(.*)/$', 'feincms.views.base.handler'),
+    url(r'^$|^(.*)/$', 'feincms.views.applicationcontent.handler'),
+    url(r'^$', 'feincms.views.base.handler', { 'path': '/news' }),
 )
 
 from django.conf import settings

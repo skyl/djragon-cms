@@ -6,14 +6,12 @@ from django.shortcuts import render_to_response
 from news.models import Entry
 
 
-def front_page(request):
+def front_page(request, *args, **kwargs):
     '''http://mis-asia.com/
 
     plugged into '/', has latest and most popular articles, featured'''
 
     page = request.GET.get('page')
-    
-
 
     return object_list(request,
         queryset=Entry.objects.all(),
@@ -22,6 +20,6 @@ def front_page(request):
         page=page if page else 1,
         template_name='news/front_page.html',
         extra_context={
-
+            #'most_popular': popular
         }
     )

@@ -88,6 +88,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )
+# hmm.. trying to plug in the news urls .. can get no trailing slash to work..
+#APPEND_SLASH = False
 
 ROOT_URLCONF = 'djragon_cms.urls'
 
@@ -112,7 +114,8 @@ INSTALLED_APPS = (
 
     'dcms', # our central swiss-army app
     'news', # some entries to tie-in with dcms
-
+    'tagging',
+    'tagging_ext',
 )
 
 

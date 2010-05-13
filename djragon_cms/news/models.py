@@ -6,7 +6,7 @@ from django.db import models
 class Entry(models.Model):
     published_date = models.DateField()
     title = models.CharField(max_length=200)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
 
     class Meta:
@@ -19,11 +19,12 @@ class Entry(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
+        return ('entry_detail', (), {'slug': self.slug,})
+        '''
         return ('entry_detail', (), {
             'year': self.published_date.strftime('%Y'),
             'month': self.published_date.strftime('%m'),
             'day': self.published_date.strftime('%d'),
             'slug': self.slug,
             })
-
-
+        '''

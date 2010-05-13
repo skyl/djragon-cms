@@ -4,7 +4,7 @@
 
 <head>
 <title>
-{% block title %}{% get_fragment request "title" %} - {{ feincms_page.title }} - {{ block.super }}{% endblock %}
+{% block title %}{% get_fragment request "title" %} - {{ feincms_page.page_title }} - {{ block.super }}{% endblock %}
 </title>
 </head>
 
@@ -17,6 +17,9 @@
     {% endfor %}
     </div>
     {% endcomment %}
+    <div id="header">
+    <a href='/'><img src="{{ MEDIA_URL }}/header_logo.gif" alt="Upload file to MEDIA_URL/header_logo.gif"></a>
+    </div>
 
     <div id="main-nav">
         <h3>UpTo 3 level navigation</h3>

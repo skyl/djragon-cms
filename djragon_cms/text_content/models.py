@@ -1,6 +1,5 @@
-from django.db import models
+import datetime
 
-from datetime import datetime
 from django.db import models
 
 class Author(models.Model):
@@ -13,7 +12,7 @@ class Author(models.Model):
 
 class Blog(models.Model):
     '''The blogs and opinions bit'''
-    published_date = models.DateField()
+    published_date = models.DateField(default=datetime.date.today)
     author = models.ForeignKey('Author')
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
@@ -27,7 +26,7 @@ class Blog(models.Model):
         return ('blog_detail', (), {'slug': self.slug,})
 
 class NewsArticle(models.Model):
-    published_date = models.DateField()
+    published_date = models.DateField(default=datetime.date.today)
     author = models.ForeignKey('Author')
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)

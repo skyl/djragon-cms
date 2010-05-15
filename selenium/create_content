@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>create_content</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">create_content</td></tr>
+</thead><tbody>
+<!--this assumes that you have a superuser, s with password 1-->
+<tr>
+	<td>open</td>
+	<td>/admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_username</td>
+	<td>s</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_password</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Log in']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Authors</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add author</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_name</td>
+	<td>Teng Fen</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Text_content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Blogs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add blog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>calendarlink0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Today</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Today</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id_author</td>
+	<td>label=Teng Fen</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_title</td>
+	<td>Blogging is the next Foo</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id_title</td>
+	<td>b</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=body#tinymce</td>
+	<td>wowee blogging is amazing with such great tools</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Text_content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=News articles</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add news article</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id_author</td>
+	<td>label=Teng Fen</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_title</td>
+	<td>Skyl.org reports record earnings</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id_title</td>
+	<td>b</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=body#tinymce</td>
+	<td>This is easy, right?</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='changelist-filter']/div[1]/h3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='changelist-filter']/div[1]/h3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_title</td>
+	<td>IT News, Analysis, Blogs, Reviews and Multimedia--MIS Asia--The Home of Enterprise IT in Asia</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>id_title</td>
+	<td>b</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_override_url</td>
+	<td>/</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_in_navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=IT News, Analysis, Blogs, Reviews … rprise IT in Asia</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_title</td>
+	<td>Home</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>settings_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id__content_title</td>
+	<td>IT News, Analysis, Blogs, Reviews and Multimedia--MIS Asia--The Home of Enterprise IT in Asia</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>settings_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='page_form']/div[2]/div[3]/input[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='changelist']/div[1]/form/div[2]/div[2]/table/tbody/tr/th/a</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

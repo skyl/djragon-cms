@@ -4,4 +4,8 @@
 -e git+http://github.com/matthiask/django-mptt.git#egg=mptt
 -e git+http://github.com/brosner/django-tagging.git#egg=tagging
 -e git+http://github.com/skyl/django-tagging-ext.git#egg=django-tagging-ext
+-e svn+http://django-grappelli.googlecode.com/svn/trunk#egg=grappelli
+-e git+http://github.com/robhudson/django-debug-toolbar.git#egg=debug_toolbar
 django-extensions
+feedparser
+-e hg+http://bitbucket.org/andrewgodwin/south#egg=south

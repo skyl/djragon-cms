@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic.list_detail import object_list
 from django.shortcuts import render_to_response
 
-from news.models import Entry
+from text_content.models import NewsArticle
 
 
 def front_page(request, *args, **kwargs):
@@ -14,7 +14,7 @@ def front_page(request, *args, **kwargs):
     page = request.GET.get('page')
 
     return object_list(request,
-        queryset=Entry.objects.all(),
+        queryset=NewsArticle.objects.all(),
         template_object_name='latest',
         paginate_by=10,
         page=page if page else 1,

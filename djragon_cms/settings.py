@@ -60,7 +60,8 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+ADMIN_MEDIA_PREFIX = '/media/grappelli/'
+#ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'xpva8t5)!lyo)$s2foayc@n2%li2gs%hi%)4sm!yknwl4pi3hd'
@@ -87,6 +88,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 # hmm.. trying to plug in the news urls .. can get no trailing slash to work..
 #APPEND_SLASH = False
@@ -104,6 +106,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.comments',
+    'grappelli',
     'django.contrib.admin',
     'django_extensions',
 
@@ -113,11 +116,25 @@ INSTALLED_APPS = (
     'feincms.module.medialibrary',
 
     'dcms', # our central swiss-army app
-    'news', # some entries to tie-in with dcms
+    'text_content', # news, blogs, cio_focus, etc
     'tagging',
     'tagging_ext',
+    # dev stuff
+    'south', # why not give it a try?
+    'debug_toolbar',
 )
 
-
+#fein
 FEINCMS_ADMIN_MEDIA = '/media/feincms/'
-TINYMCE_JS_URL = '/media/tinymce/tiny_mce.js'
+
+TINYMCE_JS_URL = '/media/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'
+
+#grappelli
+GRAPPELLI_ADMIN_TITLE = 'DjragonCMS'
+
+#debug_toolbar
+INTERNAL_IPS = ('127.0.0.1',)
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
+

@@ -51,6 +51,14 @@ USE_L10N = True
 
 # For right now, we just use a simple structure with no staticfiles app
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
+#'/home/skyl/Code/github/Dragon-CMS/djragon_cms/media/'
+
+# filebrowser settings
+# http://code.google.com/p/django-filebrowser/wiki/Settings
+FILEBROWSER_DEBUG = True
+FILEBROWSER_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'filebrowser')
+FILEBROWSER_MEDIA_URL = '/media/filebrowser/'
+FILEBROWSER_DIRECTORY = 'uploads'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -107,6 +115,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.comments',
     'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django_extensions',
 
@@ -117,8 +126,10 @@ INSTALLED_APPS = (
 
     'dcms', # our central swiss-army app
     'text_content', # news, blogs, cio_focus, etc
+
     'tagging',
     'tagging_ext',
+
     # dev stuff
     'south', # why not give it a try?
     'debug_toolbar',
@@ -127,10 +138,10 @@ INSTALLED_APPS = (
 #fein
 FEINCMS_ADMIN_MEDIA = '/media/feincms/'
 
+#grappelli and friends, tinymce and filebrowser
 TINYMCE_JS_URL = '/media/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'
-
-#grappelli
 GRAPPELLI_ADMIN_TITLE = 'DjragonCMS'
+URL_FILEBROWSER_MEDIA = '/media/filebrowser/'
 
 #debug_toolbar
 INTERNAL_IPS = ('127.0.0.1',)

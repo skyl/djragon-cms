@@ -4,4 +4,4 @@ pip-log.txt
 *.swp
 *.pyc
 dev.db
-media
+uploads

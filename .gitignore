@@ -5,3 +5,6 @@ pip-log.txt
 *.pyc
 dev.db
 uploads
+medialibrary
+imagecontent
+

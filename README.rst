@@ -7,4 +7,8 @@ INSTALL
 
 #. Run ``pip install -r req/requirements.txt``
 
-#. syncdb
+#. ``syncdb``
+
+#. ``./manage.py runserver --adminmedia=./media/grappelli``
+
+

@@ -22,15 +22,17 @@ Page.register_extensions(
     'seo',
     'symlinks',
     'titles',
-    'translations',
+    #'translations',
 )
 
 Page.register_templates({
     'title': _('Standard template'),
     'path': 'base.html',
     'regions': (
+        ('banner', _('banner ad'), 'inherited'),
         ('main', _('Main content area')),
         ('sidebar', _('Sidebar'), 'inherited'),
+        ('footer', _('Footer'), 'inherited')
     ),
 })
 
@@ -44,14 +46,8 @@ Page.create_content_type(MediaFileContent, POSITION_CHOICES=(
         ('right', _('right')),
     ))
 
-Page.create_content_type(ImageContent, POSITION_CHOICES=(
-        ('block', _('block')),
-        ('left', _('left')),
-        ('right', _('right')),
-    ))
-
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
-        ('news.urls', 'News application'),
+        ('news.news_urls', 'News application'),
     ))
 
 Page.create_content_type(CommentsContent)

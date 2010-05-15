@@ -1,8 +1,5 @@
 from django.conf.urls.defaults import *
-
-# Uncomment the next two lines to enable the admin:
-from django.contrib import admin
-admin.autodiscover()
+from admin import admin
 
 urlpatterns = patterns('',
     # Example:
@@ -14,6 +11,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^grappelli/', include('grappelli.urls')),
     #(r'^news/', include('news.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
 )
@@ -35,11 +33,12 @@ if settings.DEBUG:
 
 # django-tagging-ext url definitions
 from feincms.module.page.models import Page
-from news.models import Entry
+from text_content.models import NewsArticle
+
 from tagging.models import TaggedItem
 
 tagged_models = (
-  dict(title="Entries",
+  dict(title="News Article",
     query=lambda tag : TaggedItem.objects.get_by_model(Entry, tag).filter(status=2),
   ),
   dict(title="Pages",

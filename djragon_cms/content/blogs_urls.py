@@ -1,11 +1,11 @@
 from django.conf.urls.defaults import *
-from text_content.models import NewsArticle
+from content.models import Blog
 
-entry_dict = {'queryset': NewsArticle.objects.all()}
+entry_dict = {'queryset': Blog.objects.all()}
 
 urlpatterns = patterns('',
     url(r'^$',
-        'text_content.views.news_front_page',
+        'text.views.news_front_page',
         #'django.views.generic.list_detail.object_list',
         entry_dict,
         name='entry_list'),

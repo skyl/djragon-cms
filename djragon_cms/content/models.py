@@ -2,10 +2,15 @@ import datetime
 
 from django.db import models
 
+from filebrowser.fields import FileBrowseField
+
+
 class Author(models.Model):
     '''News author'''
 
     name = models.CharField(max_length=150)
+    image = FileBrowseField("Portrait",
+        max_length=200, format='Image', directory='images/authors/', blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -31,6 +36,10 @@ class NewsArticle(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = models.TextField(blank=True)
+    featured = models.BooleanField()
+
+    image = FileBrowseField("Image",
+        max_length=200, format='Image', directory='images/news/', blank=True, null=True)
 
     class Meta:
         get_latest_by = 'published_date'

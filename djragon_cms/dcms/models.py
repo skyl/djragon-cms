@@ -24,7 +24,6 @@ Page.register_extensions(
     'titles',
     #'translations',
 )
-
 Page.register_templates({
     'title': _('Standard template'),
     'path': 'base.html',
@@ -35,22 +34,40 @@ Page.register_templates({
         ('footer', _('Footer'), 'inherited')
     ),
 })
-
 Page.create_content_type(RichTextContent)
-
 Page.create_content_type(RawContent)
-
 Page.create_content_type(MediaFileContent, POSITION_CHOICES=(
         ('block', _('block')),
         ('left', _('left')),
         ('right', _('right')),
     ))
-
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
-        ('text_content.news_urls', 'News application'),
+        ('content.frontpage_news_urls', 'Front Page News'),
+        ('content.news_urls', 'News Articles'),
     ))
-
 Page.create_content_type(CommentsContent)
+
+import datetime
+
+from django.template.loader import render_to_string
+from feincms.module.page.models import Page
+from content.models import NewsArticle
+
+two_weeks_ago = lambda: datetime.date.today() - datetime.timedelta(days=14)
+
+class FrontPageNews(models.Model):
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/frontpagenews.html', {
+            'featured': NewsArticle.objects.filter(featured=True)[:5],
+            'popular': NewsArticle.objects.filter(published_date__gte=two_weeks_ago)[:15],
+            'latest': NewsArticle.objects.all()[:15]
+        })
+
+Page.create_content_type(FrontPageNews)
 
 '''
 # http://www.feinheit.ch/media/labs/feincms/page.html#adding-another-content-type

@@ -1,32 +1,108 @@
 {% load feincms_tags applicationcontent_tags feincms_page_tags mptt_tags %}
 <!DOCTYPE html>
 <html>
-
 <head>
+<link href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" type="text/css">
+
+
 <title>
 {% block title %}{% get_fragment request "title" %} - {{ feincms_page.page_title }} - {{ block.super }}{% endblock %}
 </title>
 </head>
 
 <body>
-    {% comment %}
-    <div id="language">
-    {% feincms_languagelinks for entry as links all,excludecurrent %}
-    {% for key, name, link in links %}
-        <a href="{% if link %}{{ link }}{% else %}/{{ key }}/{% endif %}">{% trans name %}</a>
-    {% endfor %}
-    </div>
-    {% endcomment %}
-    <div id="header">
-    <a href='/'><img src="{{ MEDIA_URL }}/header_logo.gif" alt="Upload file to MEDIA_URL/header_logo.gif"></a>
+<div id="body">
+    <div id="links">
+        {# we just include and have to manually change in template .. better for scaling also #}
+        {% include "includes/head-links.html" %}
     </div>
 
+    <div id="header">
+        <div id="header-logo-link">
+            <a id="header-logo-link" href='/'><img src="{{ MEDIA_URL }}/header_logo.gif" alt="Upload file to MEDIA_URL/header_logo.gif"></a>
+        </div>
+        <div id="banner-ad">
+            {% feincms_render_region feincms_page "banner" request %}
+        </div>
+        <div id="search">
+            <form method='post'>
+{% comment %}
+send a search form to the context?
+                {% csrf_ %}
+
+                {{ search_form|as_uni_form }}
+                <input type="Submit" valuie="Search"/>
+{% endcomment %}
+            </form>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+
+
+<div id="left_nav_bg">
+    <div id="right_nav_bg">
+    <div id="topnav">
+                
+    <ul>
+            <li class="News selected">    
+             <a href="http://mis-asia.com/news">
+                 News             </a>
+             </li>
+                          <li class="Tech Centre">    
+             <a href="http://mis-asia.com/technology_centre">
+                 Tech Centre             </a>
+             </li>
+                          <li class="CIO Focus">    
+             <a href="http://mis-asia.com/cio_focus">
+                 CIO Focus             </a>
+             </li>
+                          <li class="Blogs &amp; Opinion">    
+             <a href="http://mis-asia.com/opinion__and__blogs">
+                 Blogs &amp; Opinion             </a>
+             </li>
+                          <li class="Multimedia">    
+             <a href="http://mis-asia.com/multimedia">
+                 Multimedia             </a>
+             </li>
+                          <li class="White Papers">    
+             <a href="http://mis-asia.com/white_papers">
+                 White Papers             </a>
+             </li>
+                          <li class="Reviews">    
+             <a href="http://mis-asia.com/reviews">
+                 Reviews             </a>
+             </li>
+                          <li class="Events">    
+             <a href="http://mis-asia.com/events">
+                 Events             </a>
+             </li>
+                          <li class="Magazines">    
+             <a href="http://mis-asia.com/magazines">
+                 Magazines             </a>
+         </li>
+    </ul>
+    </div><!-- topnav -->
+    <div class="clear2"></div>
+   <!-- <div id="navgap" >
+    </div>--><!-- navgap -->
+    <div id="navgap2">
+        <div id="nav2"></div>
+        <div class="clear2" id="headingClear"></div>
+        {% ifnotequal request.path '/' %}<div id="page-title">{{ feincms_page.title }}</div>{% endifnotequal %}
+    </div><!-- navgap2 -->
+    <div id="navgap3">
+        <div id="navgap3-border">
+        </div><!-- navgap2-border -->
+    </div><!-- navgap3 -->
+</div><!-- right_nav_bg -->
+</div>
+
+
     <div id="main-nav">
-        <h3>UpTo 3 level navigation</h3>
         {% feincms_navigation of feincms_page as mainp level=1,depth=1 %}
         <ul>
         {% for p in mainp %}
-            <li>
+            <li >
                 <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
                 {% if p.children.all %}<ul>
                 {% for sub in p.children.all %}
@@ -61,26 +137,26 @@
     </div>
     -->
 
+    {% ifnotequal request.path '/' %}
     <div id="breadcrumbs">
-    <h3>breadcrumbs</h3>
     <!--
-    {% feincms_parentlink of feincms_page level=1 %} 
+    {% feincms_parentlink of feincms_page level=2 %} 
     or, better yet: -->
     {% feincms_breadcrumbs feincms_page %}
     </div>
+    {% endifnotequal %}
 
     <div id="content">
     {% block content %}
-    main content region
     {% feincms_render_region feincms_page "main" request %}
     {% endblock %}
     </div>
 
     <div id="sidebar">
-    Sidebar
     {% block sidebar %}
     {% feincms_render_region feincms_page "sidebar" request %}
     {% endblock %}
     </div>
+</div>
 </body>
 </html>

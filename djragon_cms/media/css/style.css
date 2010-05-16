@@ -1,0 +1,53 @@
+body {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10px;
+min-width:960px;
+}
+
+div#body {
+width:979px;
+margin:0 auto;
+}
+
+#head-links {
+text-align:right;
+padding-top:7px;
+padding-bottom:7px;
+padding-right:5px;
+}
+
+div#header-logo-link {
+float:left;
+width:300px;
+height:100px;
+}
+
+#banner-ad {
+float:left;
+width:100px;
+height:100px;
+}
+
+#content {
+float:left;
+width:70%;
+}
+
+#sidebar {
+float:left;
+width: 30%;
+}
+
+div#rightcol-advertisement {
+display: block;
+height: 250px;
+margin-bottom: 0px;
+margin-left: 4px;
+margin-right: 0px;
+margin-top: 5px;
+padding-bottom: 0px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 0px;
+width: 301px;
+}

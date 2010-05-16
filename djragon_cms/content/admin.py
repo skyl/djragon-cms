@@ -1,5 +1,5 @@
 from django.contrib import admin
-from text_content.models import NewsArticle, Blog, Author
+from content.models import NewsArticle, Blog, Author
 
 
 class AuthorAdmin(admin.ModelAdmin):

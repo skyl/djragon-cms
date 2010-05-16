@@ -125,13 +125,13 @@ INSTALLED_APPS = (
     'feincms.module.medialibrary',
 
     'dcms', # our central swiss-army app
-    'text_content', # news, blogs, cio_focus, etc
+    'content', # news, blogs, cio_focus, etc
 
     'tagging',
     'tagging_ext',
 
     # dev stuff
-    'south', # why not give it a try?
+    #'south', # why not give it a try? .. uh, cause it sucks?
     'debug_toolbar',
 )
 

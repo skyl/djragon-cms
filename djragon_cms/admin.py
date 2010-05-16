@@ -6,8 +6,8 @@ admin.autodiscover()
 
 admin.site.groups = {
     0: {
-        'name': 'Content',
-        'apps': ['text_content', 'page', 'medialibrary', 'tagging', 'comments'],
+        'name': 'Assets',
+        'apps': ['content', 'page', 'medialibrary', 'tagging', 'comments'],
         'show_apps': True,
     },
     1: {

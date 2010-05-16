@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
-    #(r'^news/', include('text_content.news_urls')),
+    #(r'^news/', include('content.news_urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
 )
 
@@ -30,7 +30,7 @@ if settings.DEBUG:
 
 # django-tagging-ext url definitions
 from feincms.module.page.models import Page
-from text_content.models import NewsArticle
+from content.models import NewsArticle
 
 from tagging.models import TaggedItem
 

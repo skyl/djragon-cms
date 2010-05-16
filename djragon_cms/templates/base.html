@@ -39,86 +39,40 @@ send a search form to the context?
     <div style="clear:both;"></div>
 
 
-<div id="left_nav_bg">
-    <div id="right_nav_bg">
-    <div id="topnav">
-                
-    <ul>
-            <li class="News selected">    
-             <a href="http://mis-asia.com/news">
-                 News             </a>
-             </li>
-                          <li class="Tech Centre">    
-             <a href="http://mis-asia.com/technology_centre">
-                 Tech Centre             </a>
-             </li>
-                          <li class="CIO Focus">    
-             <a href="http://mis-asia.com/cio_focus">
-                 CIO Focus             </a>
-             </li>
-                          <li class="Blogs &amp; Opinion">    
-             <a href="http://mis-asia.com/opinion__and__blogs">
-                 Blogs &amp; Opinion             </a>
-             </li>
-                          <li class="Multimedia">    
-             <a href="http://mis-asia.com/multimedia">
-                 Multimedia             </a>
-             </li>
-                          <li class="White Papers">    
-             <a href="http://mis-asia.com/white_papers">
-                 White Papers             </a>
-             </li>
-                          <li class="Reviews">    
-             <a href="http://mis-asia.com/reviews">
-                 Reviews             </a>
-             </li>
-                          <li class="Events">    
-             <a href="http://mis-asia.com/events">
-                 Events             </a>
-             </li>
-                          <li class="Magazines">    
-             <a href="http://mis-asia.com/magazines">
-                 Magazines             </a>
-         </li>
-    </ul>
-    </div><!-- topnav -->
-    <div class="clear2"></div>
-   <!-- <div id="navgap" >
-    </div>--><!-- navgap -->
-    <div id="navgap2">
-        <div id="nav2"></div>
-        <div class="clear2" id="headingClear"></div>
-        {% ifnotequal request.path '/' %}<div id="page-title">{{ feincms_page.title }}</div>{% endifnotequal %}
-    </div><!-- navgap2 -->
-    <div id="navgap3">
-        <div id="navgap3-border">
-        </div><!-- navgap2-border -->
-    </div><!-- navgap3 -->
 </div><!-- right_nav_bg -->
 </div>
 
-
     <div id="main-nav">
         {% feincms_navigation of feincms_page as mainp level=1,depth=1 %}
-        <ul>
+        <ul id="toplevel-nav">
         {% for p in mainp %}
-            <li >
+            <li{% if p in feincms_page.get_ancestors %} class="selected"{% else %}{% ifequal p feincms_page %} class="selected"{% endifequal %}{% endif %}>
                 <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
-                {% if p.children.all %}<ul>
+                {% if p.children.all %}
+                <ul class="subnav">
                 {% for sub in p.children.all %}
-                    <li>
+                    <li{% if sub in feincms_page.get_ancestors %} class="selected"{% else %}{% ifequal sub feincms_page %} class="selected"{% endifequal %}{% endif %}>
                         <a href="{{ sub.get_absolute_url }}">{{ sub.title }}</a>
-                        {% if sub.children.all %}<ul>
-                        {% for subsub in sub.children.all %}
-                            <li><a href="{{ subsub.get_absolute_url }}">{{ subsub.title }}</a></li>
-                        {% endfor %}
-                        </ul>{% endif %}
+                        {# we could go to three level :P #}
                     </li>
                 {% endfor %}
-                </ul>{% endif %}
+                </ul>
+                {% endif %}
             </li>
         {% endfor %}
         </ul>
+        <div class="clear2"></div>
+        <!-- <div id="navgap" >
+        </div>--><!-- navgap -->
+        <div id="navgap2">
+            <div id="nav2"></div>
+            <div class="clear2" id="headingClear"></div>
+            {% ifnotequal request.path '/' %}<div id="page-title">{{ feincms_page.title }}</div>{% endifnotequal %}
+        </div><!-- navgap2 -->
+        <div id="navgap3">
+            <div id="navgap3-border">
+            </div><!-- navgap2-border -->
+        </div><!-- navgap3 -->
     </div>
 
     <!-- Possible alternate nav schemes 

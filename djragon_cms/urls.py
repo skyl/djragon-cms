@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
-    #(r'^news/', include('news.urls')),
+    #(r'^news/', include('text_content.news_urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
 )
 

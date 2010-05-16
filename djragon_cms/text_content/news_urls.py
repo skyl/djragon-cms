@@ -5,7 +5,7 @@ entry_dict = {'queryset': NewsArticle.objects.all()}
 
 urlpatterns = patterns('',
     url(r'^$',
-        'text_content.views.front_page',
+        'text_content.views.news_front_page',
         #'django.views.generic.list_detail.object_list',
         entry_dict,
         name='entry_list'),

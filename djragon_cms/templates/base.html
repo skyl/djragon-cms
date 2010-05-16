@@ -71,11 +71,13 @@
 
     <div id="content">
     {% block content %}
+    main content region
     {% feincms_render_region feincms_page "main" request %}
     {% endblock %}
     </div>
 
     <div id="sidebar">
+    Sidebar
     {% block sidebar %}
     {% feincms_render_region feincms_page "sidebar" request %}
     {% endblock %}

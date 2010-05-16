@@ -47,7 +47,7 @@ Page.create_content_type(MediaFileContent, POSITION_CHOICES=(
     ))
 
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
-        ('news.news_urls', 'News application'),
+        ('text_content.news_urls', 'News application'),
     ))
 
 Page.create_content_type(CommentsContent)

@@ -1,0 +1,5 @@
+{{ title }}
+
+{% for p in featured_pages %}
+{{ p.get_absolute_url }} {{ p.title }}
+{% endfor %}

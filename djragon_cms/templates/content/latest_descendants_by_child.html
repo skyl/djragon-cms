@@ -1,0 +1,15 @@
+{{ title }}
+
+<div class="child-wrapper">
+    {% for p in children %}
+    <h3 class="child-category-header">{{ p.title }}</h3>
+    <div class="child-category">
+        {% for child in p.latest_children %}
+        <div class="child-list-item">
+            <a href="{{ child.get_absolute_url }}">{{ child.title }}</a>
+            {{ child.content.main.0.render|striptags|truncatewords:100 }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>

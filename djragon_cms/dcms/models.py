@@ -15,9 +15,8 @@ from feincms.content.raw.models import RawContent
 from feincms.content.rss.models import RSSContent
 from feincms.content.comments.models import CommentsContent
 
-from IPython.Shell import IPShellEmbed
-ipython = IPShellEmbed()
-
+#from IPython.Shell import IPShellEmbed
+#ipython = IPShellEmbed()
 
 Page.register_extensions(
     'changedate',
@@ -81,14 +80,44 @@ class FeaturedDescendantsContent(models.Model):
         abstract = True
 
     def render(self, **kwargs):
-        #ipython()
         p = Page.objects.best_match_for_request(kwargs['request'])
-        return render_to_string('content/featured_descendants_content.html', {
+        return render_to_string('content/featured_descendants.html', {
             'title': self.title,
             'featured_pages': p.get_descendants().filter(featured=True),
         })
-
 Page.create_content_type(FeaturedDescendantsContent)
+
+class LatestDescendants(models.Model):
+    title = models.CharField(max_length=100)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        p = Page.objects.best_match_for_request(kwargs['request'])
+        return render_to_string('content/latest_descendants.html', {
+            'title': self.title,
+            'latest_pages': p.get_descendants().order_by('-publication_date')[:10],
+        })
+Page.create_content_type(LatestDescendants)
+
+class LatestDescendantsByChild(models.Model):
+    title = models.CharField(max_length=100)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        p = Page.objects.best_match_for_request(kwargs['request'])
+        children = p.get_children() #.order_by('-publication_date')
+
+        return render_to_string('content/latest_descendants_by_child.html', {
+            'title': self.title,
+            'children': children,
+        })
+Page.create_content_type(LatestDescendantsByChild)
+
+
 
 '''
 # http://www.feinheit.ch/media/labs/feincms/page.html#adding-another-content-type

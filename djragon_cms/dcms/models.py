@@ -15,6 +15,10 @@ from feincms.content.raw.models import RawContent
 from feincms.content.rss.models import RSSContent
 from feincms.content.comments.models import CommentsContent
 
+from IPython.Shell import IPShellEmbed
+ipython = IPShellEmbed()
+
+
 Page.register_extensions(
     'changedate',
     'datepublisher',
@@ -22,6 +26,7 @@ Page.register_extensions(
     'seo',
     'symlinks',
     'titles',
+    'featured',
     #'translations',
 )
 Page.register_templates({
@@ -68,6 +73,22 @@ class FrontPageNews(models.Model):
         })
 
 Page.create_content_type(FrontPageNews)
+
+class FeaturedDescendantsContent(models.Model):
+    title = models.CharField(max_length=100)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        #ipython()
+        p = Page.objects.best_match_for_request(kwargs['request'])
+        return render_to_string('content/featured_descendants_content.html', {
+            'title': self.title,
+            'featured_pages': p.get_descendants().filter(featured=True),
+        })
+
+Page.create_content_type(FeaturedDescendantsContent)
 
 '''
 # http://www.feinheit.ch/media/labs/feincms/page.html#adding-another-content-type

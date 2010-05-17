@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 
 from filebrowser.fields import FileBrowseField
-
+from tagging.fields import TagField
 
 class Author(models.Model):
     '''News author'''
@@ -22,6 +22,9 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = models.TextField()
+    tags = TagField(blank=True)
+    image = FileBrowseField("Image",
+        max_length=200, format='Image', directory='images/news/', blank=True, null=True)
 
     def __unicode__(self):
         return self.title
@@ -37,7 +40,7 @@ class NewsArticle(models.Model):
     slug = models.SlugField(unique=True)
     content = models.TextField(blank=True)
     featured = models.BooleanField()
-
+    tags = TagField(blank=True)
     image = FileBrowseField("Image",
         max_length=200, format='Image', directory='images/news/', blank=True, null=True)
 
@@ -52,3 +55,31 @@ class NewsArticle(models.Model):
     def get_absolute_url(self):
         return ('entry_detail', (), {'slug': self.slug,})
 
+"""
+class CategorizedArticle(models.Model):
+    '''For Content that is neither news nor opinion but meant to be included under specific pages'''
+    category = models.ForeignKey('Category')
+    published_date = models.DateField(default=datetime.date.today)
+    author = models.ForeignKey('Author')
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    content = models.TextField(blank=True)
+    featured = models.BooleanField()
+    tags = TagField(blank=True) #we need some tags to categorize the content (not news)
+    image = FileBrowseField("Image",
+        max_length=200, format='Image', directory='images/news/', blank=True, null=True)
+
+    class Meta:
+        get_latest_by = 'published_date'
+        ordering = ['-published_date']
+
+    def __unicode__(self):
+        return self.title
+    '''
+    # these will get included in the page explicitly
+    # special Content objects for feincms will be created for "latest" etc as needed
+    @models.permalink
+    def get_absolute_url(self):
+        return ('entry_detail', (), {'slug': self.slug,})
+    '''
+"""

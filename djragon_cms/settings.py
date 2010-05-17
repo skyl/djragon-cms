@@ -96,7 +96,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 # hmm.. trying to plug in the news urls .. can get no trailing slash to work..
 #APPEND_SLASH = False
@@ -132,7 +132,7 @@ INSTALLED_APPS = (
 
     # dev stuff
     #'south', # why not give it a try? .. uh, cause it sucks?
-    'debug_toolbar',
+    #'debug_toolbar', meh, no need to keep that on for default..
 )
 
 #fein
@@ -144,8 +144,7 @@ GRAPPELLI_ADMIN_TITLE = 'DjragonCMS'
 URL_FILEBROWSER_MEDIA = '/media/filebrowser/'
 
 #debug_toolbar
-INTERNAL_IPS = ('127.0.0.1',)
-DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': False,
-}
-
+#INTERNAL_IPS = ('127.0.0.1',)
+#DEBUG_TOOLBAR_CONFIG = {
+#    'INTERCEPT_REDIRECTS': False,
+#}

@@ -40,11 +40,14 @@ Page.register_templates({
 })
 Page.create_content_type(RichTextContent)
 Page.create_content_type(RawContent)
+'''
+#filebrowser rocks too hard
 Page.create_content_type(MediaFileContent, POSITION_CHOICES=(
         ('block', _('block')),
         ('left', _('left')),
         ('right', _('right')),
     ))
+'''
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
         ('content.frontpage_news_urls', 'Front Page News'),
         ('content.news_urls', 'News Articles'),

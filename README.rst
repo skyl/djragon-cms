@@ -9,6 +9,8 @@ INSTALL
 
 #. ``syncdb``
 
+#. ``./manage.py loaddata fixtures/*`` - let's build a good example set of objects.
+
 #. ``./manage.py runserver --adminmedia=./media/grappelli``
 
 

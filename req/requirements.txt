@@ -1,13 +1,10 @@
--e svn+http://code.djangoproject.com/svn/django/trunk#egg=django
-#-e git+http://github.com/skyl/feincms.git#egg=feincms
+-e git+git@github.com:skyl/django.git#egg=django
 -e git+git@github.com:skyl/feincms.git#egg=feincms
 -e git+http://github.com/matthiask/django-mptt.git#egg=mptt
 -e git+http://github.com/brosner/django-tagging.git#egg=tagging
 -e git+http://github.com/skyl/django-tagging-ext.git#egg=django-tagging-ext
 -e svn+http://django-grappelli.googlecode.com/svn/trunk#egg=grappelli
 -e git+http://github.com/skyl/django-filebrowser.git#egg=filebrowser
-#meh, svn is stupid
-#-e svn+http://django-filebrowser.googlecode.com/svn/trunk#egg=filebrowser
 #add this if you want it, uncomment middleware and installed apps
 #-e git+http://github.com/robhudson/django-debug-toolbar.git#egg=debug_toolbar
 django-extensions
@@ -15,3 +12,5 @@ feedparser
 #bah, south
 #-e hg+http://bitbucket.org/andrewgodwin/south#egg=south
 
+# let's build a transcoding system
+-e git+http://github.com/ask/celery.git#egg=celery

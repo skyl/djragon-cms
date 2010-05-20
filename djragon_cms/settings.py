@@ -1,5 +1,3 @@
-# Django settings for djragon_cms project.
-
 import os
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -98,7 +96,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     #'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
-# hmm.. trying to plug in the news urls .. can get no trailing slash to work..
+# hmm.. trying to plug in the news urls .. can't get no trailing slash to work..
 #APPEND_SLASH = False
 
 ROOT_URLCONF = 'djragon_cms.urls'
@@ -116,13 +114,12 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'grappelli',
     'filebrowser',
-    'django.contrib.admin',
     'django_extensions',
 
     'feincms',
     'mptt',
     'feincms.module.page',
-    'feincms.module.medialibrary',
+    #'feincms.module.medialibrary', #nofilebrowser
 
     'dcms', # our central swiss-army app
     'content', # news, blogs, cio_focus, etc
@@ -133,15 +130,39 @@ INSTALLED_APPS = (
     # dev stuff
     #'south', # why not give it a try? .. uh, cause it sucks?
     #'debug_toolbar', meh, no need to keep that on for default..
+
+    #Queue
+    'transcode',
+    'celery',
+
+    'django.contrib.admin',
 )
 
 #fein
 FEINCMS_ADMIN_MEDIA = '/media/feincms/'
 
-#grappelli and friends, tinymce and filebrowser
+#FEIN+tinymce
 TINYMCE_JS_URL = '/media/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'
+#TINYMCE_INIT_URL = '/media/grappelli/tinymce_setup/tinymce_setup.js'
+TINYMCE_GRAPPELLI_FILEBROWSER = True
+#grappelli and friends, tinymce and filebrowser
 GRAPPELLI_ADMIN_TITLE = 'DjragonCMS'
 URL_FILEBROWSER_MEDIA = '/media/filebrowser/'
+FILEBROWSER_MAX_UPLOAD_SIZE = 1000000000
+
+
+#Celery, rabbitmq
+BROKER_HOST = "localhost"
+BROKER_PORT = 5672
+BROKER_USER = "skyl"
+from local_settings import BROKER_PASSWORD
+BROKER_VHOST = "transcode"
+#CELERY_RESULT_BACKEND = "amqp"
+# CELERY_IMPORTS = ("transcode.tasks",)
+#CELERY_CONCURRENCY
+
+#Transcode settings
+TRANSCODE_LOCAL = True
 
 #debug_toolbar
 #INTERNAL_IPS = ('127.0.0.1',)

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
 <title>create_content</title>
 </head>
 <body>
@@ -53,13 +53,13 @@
 	<td>Teng Fen</td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>_save</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Text_content</td>
+	<td>link=Content</td>
 	<td></td>
 </tr>
 <tr>
@@ -114,7 +114,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Text_content</td>
+	<td>link=Content</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,6 +243,66 @@
 	<td></td>
 </tr>
 <tr>
+	<td>type</td>
+	<td>id_slug</td>
+	<td>home</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//form[@id='page_form']/div[2]/div[3]/input[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='changelist']/div[1]/form/div[2]/div[2]/table/tbody/tr/th/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>order-machine-add-select</td>
+	<td>label=Raw content</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_rawcontent-0-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_rawcontent-0-text</td>
+	<td>&lt;div id=&quot;top-advertisement&quot;&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- begin ad tag--&gt;<br />&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;<br />if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}<br />document.write('&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/ros;pos=top;sz=728x90;ord=' + ord + '?&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;');<br />&lt;/script&gt;&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/ros;pos=top;sz=728x90;ord=2336626723408699?&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://ad.sg.doubleclick.net/click;h=v8/399c/0/0/%2a/l;222613474;0-0;1;30078640;3454-728/90;35043625/35061455/1;;~sscs=%3fhttp://www.commscope.com&quot;&gt;&lt;img src=&quot;http://s0.2mdn.net/viewad/2271778/254806/LeaderBoard_Fiber.gif&quot; border=&quot;0&quot; alt=&quot;Commscope&quot;&gt;&lt;/a&gt;&lt;noscript&gt;&lt;/noscript&gt;<br />&lt;!-- End ad tag --&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='page_form']/div[2]/div[3]/input[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Click here to find out more!']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_rawcontent-0-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_rawcontent-0-text</td>
+	<td>&lt;div id=&quot;top-advertisement&quot;&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- begin ad tag--&gt;<br />&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;<br />if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}<br />document.write('&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/ros;pos=top;sz=728x90;ord=' + ord + '?&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;');<br />&lt;/script&gt;&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/ros;pos=top;sz=300x90;ord=2336626723408699?&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://ad.sg.doubleclick.net/click;h=v8/399c/0/0/%2a/l;222613474;0-0;1;30078640;3454-728/90;35043625/35061455/1;;~sscs=%3fhttp://www.commscope.com&quot;&gt;&lt;img src=&quot;http://s0.2mdn.net/viewad/2271778/254806/LeaderBoard_Fiber.gif&quot; border=&quot;0&quot; alt=&quot;Commscope&quot;&gt;&lt;/a&gt;&lt;noscript&gt;&lt;/noscript&gt;<br />&lt;!-- End ad tag --&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>//form[@id='page_form']/div[2]/div[3]/input[1]</td>
 	<td></td>
@@ -250,6 +310,106 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='changelist']/div[1]/form/div[2]/div[2]/table/tbody/tr/th/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_rawcontent-0-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_rawcontent-0-text</td>
+	<td>&lt;div id=&quot;top-advertisement&quot;&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- begin ad tag--&gt;<br />&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;<br />if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}<br />document.write('&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/ros;pos=top;sz=300x90;ord=' + ord + '?&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;');<br />&lt;/script&gt;&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/ros;pos=top;sz=300x90;ord=2336626723408699?&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://ad.sg.doubleclick.net/click;h=v8/399c/0/0/%2a/l;222613474;0-0;1;30078640;3454-728/90;35043625/35061455/1;;~sscs=%3fhttp://www.commscope.com&quot;&gt;&lt;img src=&quot;http://s0.2mdn.net/viewad/2271778/254806/LeaderBoard_Fiber.gif&quot; border=&quot;0&quot; alt=&quot;Commscope&quot;&gt;&lt;/a&gt;&lt;noscript&gt;&lt;/noscript&gt;<br />&lt;!-- End ad tag --&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='page_form']/div[2]/div[3]/input[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='changelist']/div[1]/form/div[2]/div[2]/table/tbody/tr/th/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_title</td>
+	<td>Page1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>main_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>sidebar_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='sidebar_body']/div[4]/div[1]/select</td>
+	<td>label=Raw content</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar_body']/div[4]/div[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_rawcontent-1-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id_rawcontent-1-text</td>
+	<td>&lt;div id=&quot;rightcol-advertisement&quot;&gt;<br />&lt;!-- begin ad tag--&gt;<br />&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;<br />if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}<br />document.write('&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/front;pos=uprt;sz=300x250;ord=' + ord + '?&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;');<br />&lt;/script&gt;&lt;script language=&quot;JavaScript&quot; src=&quot;http://ad.sg.doubleclick.net/adj/MISAsiaPortal/front;pos=uprt;sz=300x250;ord=5726287411525846?&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;iframe src=&quot;http://view.atdmt.com/DSF/iview/179813984/direct/01/610996?click=http://ad.sg.doubleclick.net/click%3Bh%3Dv8/399c/3/0/%2a/p%3B224537199%3B0-0%3B1%3B30078639%3B4307-300/250%3B33754237/33772115/1%3B%3B%7Esscs%3D%3f&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; topmargin=&quot;0&quot; leftmargin=&quot;0&quot; allowtransparency=&quot;true&quot; width=&quot;300&quot; height=&quot;250&quot;&gt;<br />&amp;lt;a href=&quot;http://ad.sg.doubleclick.net/click%3Bh%3Dv8/399c/3/0/%2a/p%3B224537199%3B0-0%3B1%3B30078639%3B4307-300/250%3B33754237/33772115/1%3B%3B%7Esscs%3D%3fhttp://clk.atdmt.com/DSF/go/179813984/direct/01/610996&quot; target=&quot;_blank&quot;&amp;gt;&amp;lt;img src=&quot;http://view.atdmt.com/DSF/view/179813984/direct/01/610996&quot;/&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;noscript&amp;gt;&amp;lt;a href=&quot;http://ad.sg.doubleclick.net/click%3Bh%3Dv8/399c/3/0/%2a/p%3B224537199%3B0-0%3B1%3B30078639%3B4307-300/250%3B33754237/33772115/1%3B%3B%7Esscs%3D%3fhttp://clk.atdmt.com/DSF/go/179813984/direct/01/610996&quot; target=&quot;_blank&quot;&amp;gt;&amp;lt;img border=&quot;0&quot; src=&quot;http://view.atdmt.com/DSF/view/179813984/direct/01/610996&quot; /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;&lt;/iframe&gt;&lt;noscript&gt;&lt;/noscript&gt;<br />&lt;!-- End ad tag --&gt;<br />&lt;/div&gt;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='page_form']/div[2]/div[3]/input[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_rawcontent-1-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>banner_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id_rawcontent-0-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>footer_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>settings_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Skyl.org reports record earnings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Add child page']</td>
 	<td></td>
 </tr>
 

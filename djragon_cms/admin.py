@@ -7,7 +7,7 @@ admin.autodiscover()
 admin.site.groups = {
     0: {
         'name': 'Assets',
-        'apps': ['content', 'page', 'medialibrary', 'tagging', 'comments'],
+        'apps': ['content', 'page', 'tagging', 'comments'], #medialibrary
         'show_apps': True,
     },
     1: {
@@ -21,6 +21,12 @@ admin.site.groups = {
         'apps': ['grappelli'],
         'classes': ['collapse-closed'],
         'show_apps': False,
+    },
+    3: {
+        'name': 'Advanced',
+        'apps': ['sites', 'transcode'],
+        'classes': ['collapse-closed'],
+        'show_apps': True,
     },
 }
 

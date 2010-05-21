@@ -40,6 +40,10 @@ class Blog(models.Model, DredisMixin):
         return ('blog_detail', (), {'slug': self.slug,})
 
 Blog.add_incr('viewcount')
+Blog.add_string('desc')
+Blog.add_object('mapping')
+Blog.add_list('
+
 
 class NewsArticle(models.Model):
     published_date = models.DateField(default=datetime.date.today)

@@ -5,7 +5,7 @@ from django.db import models
 from filebrowser.fields import FileBrowseField
 from tagging.fields import TagField
 
-from djredish.models import DredisMixin
+from djredis.models import DredisMixin
 
 class Author(models.Model):
     '''News author'''

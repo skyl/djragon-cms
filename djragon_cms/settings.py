@@ -135,6 +135,9 @@ INSTALLED_APPS = (
     'transcode',
     'celery',
 
+    #
+    'djredis',
+
     'django.contrib.admin',
 )
 

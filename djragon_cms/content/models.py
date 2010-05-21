@@ -5,6 +5,8 @@ from django.db import models
 from filebrowser.fields import FileBrowseField
 from tagging.fields import TagField
 
+from djredish.models import DredisMixin
+
 class Author(models.Model):
     '''News author'''
 
@@ -15,13 +17,14 @@ class Author(models.Model):
     def __unicode__(self):
         return self.name
 
-class Blog(models.Model):
+class Blog(models.Model, DredisMixin):
     '''The blogs and opinions bit'''
     published_date = models.DateField(default=datetime.date.today)
     author = models.ForeignKey('Author')
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = models.TextField()
+    featured = models.BooleanField()
     tags = TagField(blank=True)
     image = FileBrowseField("Image",
         max_length=200, format='Image', directory='images/news/', blank=True, null=True)
@@ -29,9 +32,14 @@ class Blog(models.Model):
     def __unicode__(self):
         return self.title
 
+    def redis_key(self):
+        return '%s:%s:%s' % (self._meta.app_label, self._meta.module_name, self.id)
+
     @models.permalink
     def get_absolute_url(self):
         return ('blog_detail', (), {'slug': self.slug,})
+
+Blog.add_incr('viewcount')
 
 class NewsArticle(models.Model):
     published_date = models.DateField(default=datetime.date.today)
@@ -83,3 +91,42 @@ class CategorizedArticle(models.Model):
         return ('entry_detail', (), {'slug': self.slug,})
     '''
 """
+
+'''
+#Metaprogramming test
+
+from functools import partial
+
+
+#what I want to mixin
+def foo(self, key=None):
+    full_key = '%s:%s' % (self.base_key(), key)
+    return full_key
+
+
+class FooMixin:
+    @classmethod
+    def register(cls, key):
+        cls.add_to_class(key, partial(foo, key=key))
+
+
+#define and register
+class Bar(models.Model, FooMixin):
+    def base_key(self):
+        return '%s:%s:%s' % (self._meta.app_label, self._meta.module_name, self.id)
+
+#Bar.register('this')
+
+class C(object):
+    def __getattr__(self, attr):
+        key, meth = attr.partition("_")
+        def temp():
+            return getattr(self, meth)(key)
+        return meth
+
+     def bar(self, key):
+         return 'yp'
+
+c = C()
+c.foo_bar()
+'''

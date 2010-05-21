@@ -14,3 +14,8 @@ feedparser
 
 # let's build a transcoding system
 -e git+http://github.com/ask/celery.git#egg=celery
+
+# let's build a popularity engine on redis
+-e git+http://github.com/andymccurdy/redis-py.git#egg=redis
+-e git+http://github.com/ask/redish.git#egg=redish
+

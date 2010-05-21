@@ -40,27 +40,15 @@ Page.register_templates({
 })
 Page.create_content_type(RichTextContent)
 Page.create_content_type(RawContent)
-'''
-#filebrowser rocks too hard
-Page.create_content_type(MediaFileContent, POSITION_CHOICES=(
-        ('block', _('block')),
-        ('left', _('left')),
-        ('right', _('right')),
-    ))
-'''
-Page.create_content_type(ApplicationContent, APPLICATIONS=(
-        ('content.frontpage_news_urls', 'Front Page News'),
-        ('content.news_urls', 'News Articles'),
-    ))
-Page.create_content_type(CommentsContent)
 
 import datetime
 
 from django.template.loader import render_to_string
 from feincms.module.page.models import Page
-from content.models import NewsArticle
+from content.models import NewsArticle, Blog
 
 two_weeks_ago = lambda: datetime.date.today() - datetime.timedelta(days=14)
+
 
 class FrontPageNews(models.Model):
 
@@ -68,13 +56,27 @@ class FrontPageNews(models.Model):
         abstract = True
 
     def render(self, **kwargs):
-        return render_to_string('content/frontpagenews.html', {
-            'featured': NewsArticle.objects.filter(featured=True)[:5],
-            'popular': NewsArticle.objects.filter(published_date__gte=two_weeks_ago)[:15],
-            'latest': NewsArticle.objects.all()[:15]
-        })
+        featured = NewsArticle.objects.filter(featured=True)[:5],
+        latest = NewsArticle.objects.all()[:15]
 
+        return render_to_string('content/frontpagenews.html', {
+            'featured': featured,
+            'latest': latest,
+        })
 Page.create_content_type(FrontPageNews)
+
+
+class FrontPageBlogs(models.Model):
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/frontpageblogs.html', {
+            'featured': Blog.objects.filter(featured=True)[:5]
+        })
+Page.create_content_type(FrontPageBlogs)
+
 
 class FeaturedDescendantsContent(models.Model):
     title = models.CharField(max_length=100)
@@ -90,6 +92,7 @@ class FeaturedDescendantsContent(models.Model):
         })
 Page.create_content_type(FeaturedDescendantsContent)
 
+
 class LatestDescendants(models.Model):
     title = models.CharField(max_length=100)
 
@@ -103,6 +106,7 @@ class LatestDescendants(models.Model):
             'latest_pages': p.get_descendants().order_by('-publication_date')[:10],
         })
 Page.create_content_type(LatestDescendants)
+
 
 class LatestDescendantsByChild(models.Model):
     title = models.CharField(max_length=100)
@@ -120,29 +124,12 @@ class LatestDescendantsByChild(models.Model):
         })
 Page.create_content_type(LatestDescendantsByChild)
 
+Page.create_content_type(ApplicationContent, APPLICATIONS=(
+        ('content.news_urls', 'News Articles'),
+        ('content.blog_urls', 'Blogs and Opinions'),
+    ))
+Page.create_content_type(CommentsContent)
 
-
-'''
-# http://www.feinheit.ch/media/labs/feincms/page.html#adding-another-content-type
-
-from django.db import models
-from django.template.loader import render_to_string
-from feincms.module.page.models import Page
-from gallery.models import Gallery
-
-class GalleryContent(models.Model):
-    gallery = models.ForeignKey(Gallery)
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('gallery/gallerycontent.html', {
-            'images': self.gallery.image_set.order_by('?')[:5],
-        })
-
-Page.create_content_type(GalleryContent)
-'''
 
 ''' # Using page request processors
 def authenticated_request_processor(page, request):

@@ -19,3 +19,6 @@ feedparser
 -e git+http://github.com/andymccurdy/redis-py.git#egg=redis
 -e git+http://github.com/ask/redish.git#egg=redish
 
+# let's make it extend django models arbitrarily
+-e git+http://github.com/skyl/djredis.git#egg=djredis
+

@@ -42,7 +42,7 @@ class Blog(models.Model, DredisMixin):
 Blog.add_incr('viewcount')
 Blog.add_string('desc')
 Blog.add_object('mapping')
-Blog.add_list('
+Blog.add_list('comments')
 
 
 class NewsArticle(models.Model):

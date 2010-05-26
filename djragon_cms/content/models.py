@@ -17,6 +17,9 @@ class Author(models.Model):
     def __unicode__(self):
         return self.name
 
+
+import djredis.models
+
 class Blog(models.Model, DredisMixin):
     '''The blogs and opinions bit'''
     published_date = models.DateField(default=datetime.date.today)
@@ -24,26 +27,44 @@ class Blog(models.Model, DredisMixin):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = models.TextField()
+    description = models.TextField(blank=True, editable=False)
     featured = models.BooleanField()
     tags = TagField(blank=True)
     image = FileBrowseField("Image",
         max_length=200, format='Image', directory='images/news/', blank=True, null=True)
+    views = models.PositiveIntegerField(blank=True, null=True)
+
+    object_pickle = models.TextField(blank=True, editable=False)
+
+    group = djredis.models.Zset()
+    followers = djredis.models.Set()
+    myhash = djredis.models.Dict()
+    mylist = djredis.models.List()
+    myobject = djredis.models.Object()
+    mystring = djredis.models.String()
+    viewcount = djredis.models.Incr()
 
     def __unicode__(self):
         return self.title
-
-    def redis_key(self):
-        return '%s:%s:%s' % (self._meta.app_label, self._meta.module_name, self.id)
 
     @models.permalink
     def get_absolute_url(self):
         return ('blog_detail', (), {'slug': self.slug,})
 
-Blog.add_incr('viewcount')
-Blog.add_string('desc')
-Blog.add_object('mapping')
-Blog.add_list('comments')
-
+#Blog.add_incr('viewcount', 'views')
+#Blog.add_string('string', 'description')
+#Blog.add_object('object', 'object_pickle')
+#Blog.add_list('list')
+#Blog.add_set('listeners')
+#Blog.add_zset('team')
+#class fields
+Blog.add_incr_to_class('blog_counter')
+Blog.add_string_to_class('nocase')
+Blog.add_object_to_class('classobject')
+Blog.add_dict_to_class('classdict')
+Blog.add_list_to_class('classlist')
+Blog.add_set_to_class('classset')
+Blog.add_zset_to_class('classzset')
 
 class NewsArticle(models.Model):
     published_date = models.DateField(default=datetime.date.today)

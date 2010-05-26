@@ -51,13 +51,6 @@ class Blog(models.Model, DredisMixin):
     def get_absolute_url(self):
         return ('blog_detail', (), {'slug': self.slug,})
 
-#Blog.add_incr('viewcount', 'views')
-#Blog.add_string('string', 'description')
-#Blog.add_object('object', 'object_pickle')
-#Blog.add_list('list')
-#Blog.add_set('listeners')
-#Blog.add_zset('team')
-#class fields
 Blog.add_incr_to_class('blog_counter')
 Blog.add_string_to_class('nocase')
 Blog.add_object_to_class('classobject')
@@ -65,6 +58,7 @@ Blog.add_dict_to_class('classdict')
 Blog.add_list_to_class('classlist')
 Blog.add_set_to_class('classset')
 Blog.add_zset_to_class('classzset')
+
 
 class NewsArticle(models.Model):
     published_date = models.DateField(default=datetime.date.today)

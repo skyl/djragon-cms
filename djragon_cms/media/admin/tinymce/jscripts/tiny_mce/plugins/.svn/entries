@@ -1,157 +1,0 @@
-10
-
-dir
-1033
-http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/tinymce/jscripts/tiny_mce/plugins
-http://django-grappelli.googlecode.com/svn
-
-
-
-2010-01-08T16:08:24.968110Z
-715
-klemens.mantzos
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-35d8ae9e-4555-0410-bd5f-97af217b58d9
-
-media
-dir
-
-editorenhancements
-dir
-
-insertdatetime
-dir
-
-pagebreak
-dir
-
-template_org
-dir
-
-paste_org
-dir
-
-noneditable
-dir
-
-inlinepopups
-dir
-
-table_
-dir
-
-media_org
-dir
-
-example
-dir
-
-compat2x
-dir
-
-iespell
-dir
-
-emotions
-dir
-
-save
-dir
-
-advhr
-dir
-
-safari
-dir
-
-grappelli_contextmenu
-dir
-
-layer
-dir
-
-advimage
-dir
-
-grappelli
-dir
-
-preview
-dir
-
-directionality
-dir
-
-advimage_org
-dir
-
-visualchars
-dir
-
-table
-dir
-
-autosave
-dir
-
-advlink
-dir
-
-visualchars_org
-dir
-
-print
-dir
-
-nonbreaking
-dir
-
-fullpage
-dir
-
-advlink_org
-dir
-
-style
-dir
-
-searchreplace
-dir
-
-fullscreen
-dir
-
-spellchecker
-dir
-
-searchreplace_org
-dir
-
-contextmenu
-dir
-
-template
-dir
-
-paste
-dir
-
-xhtmlxtras
-dir
-
-bbcode
-dir
-

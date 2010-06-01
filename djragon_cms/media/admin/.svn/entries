@@ -1,46 +1,0 @@
-10
-
-dir
-1033
-http://django-grappelli.googlecode.com/svn/trunk/grappelli/media
-http://django-grappelli.googlecode.com/svn
-
-
-
-2010-05-18T15:19:41.683435Z
-1001
-klemens.mantzos
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-35d8ae9e-4555-0410-bd5f-97af217b58d9
-
-jquery
-dir
-
-tinymce
-dir
-
-tinymce_setup
-dir
-
-css
-dir
-
-img
-dir
-
-js
-dir
-

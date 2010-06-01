@@ -32,17 +32,19 @@ class Blog(models.Model, DredisMixin):
     tags = TagField(blank=True)
     image = FileBrowseField("Image",
         max_length=200, format='Image', directory='images/news/', blank=True, null=True)
-    views = models.PositiveIntegerField(blank=True, null=True)
 
-    object_pickle = models.TextField(blank=True, editable=False)
 
-    group = djredis.models.Zset()
-    followers = djredis.models.Set()
+
+    # djredis http://github.com/skyl/djredis
+    viewcount = djredis.models.Incr()
+    mystring = djredis.models.String()
+    myobject = djredis.models.Object()
     myhash = djredis.models.Dict()
     mylist = djredis.models.List()
-    myobject = djredis.models.Object()
-    mystring = djredis.models.String()
-    viewcount = djredis.models.Incr()
+    followers = djredis.models.Set()
+    group = djredis.models.Zset()
+
+    
 
     def __unicode__(self):
         return self.title
@@ -51,6 +53,8 @@ class Blog(models.Model, DredisMixin):
     def get_absolute_url(self):
         return ('blog_detail', (), {'slug': self.slug,})
 
+
+# http://github.com/skyl/djredis
 Blog.add_incr_to_class('blog_counter')
 Blog.add_string_to_class('nocase')
 Blog.add_object_to_class('classobject')

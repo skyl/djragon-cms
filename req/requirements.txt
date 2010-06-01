@@ -3,24 +3,33 @@
 -e git+http://github.com/matthiask/django-mptt.git#egg=mptt
 -e git+http://github.com/brosner/django-tagging.git#egg=tagging
 -e git+http://github.com/skyl/django-tagging-ext.git#egg=django-tagging-ext
--e svn+http://django-grappelli.googlecode.com/svn/trunk#egg=grappelli
--e git+http://github.com/skyl/django-filebrowser.git#egg=filebrowser
+
+#bah, grappelli has no setup.py
+#-e svn+http://django-grappelli.googlecode.com/svn/trunk#egg=grappelli
+#-e git+http://github.com/skyl/django-filebrowser.git#egg=filebrowser
+-e git+git@github.com:skyl/django-filebrowser.git#egg=filebrowser
+
 #add this if you want it, uncomment middleware and installed apps
 #-e git+http://github.com/robhudson/django-debug-toolbar.git#egg=debug_toolbar
+
 django-extensions
 feedparser
+
 #bah, south
 #-e hg+http://bitbucket.org/andrewgodwin/south#egg=south
 
-# let's build a transcoding system
+# celery, requires rabbitmq on the system, localhost, default
 -e git+http://github.com/ask/celery.git#egg=celery
 
-# let's build a popularity engine on redis
+# redis, requires redis on localhost, default
 -e git+http://github.com/andymccurdy/redis-py.git#egg=redis
--e git+http://github.com/ask/redish.git#egg=redish
+#-e git+http://github.com/ask/redish.git#egg=redish
+-e git+git@github.com:skyl/redish.git#egg=redish
+-e git+git@github.com:skyl/djredis.git#egg=djredis
 
-# let's make it extend django models arbitrarily
--e git+http://github.com/skyl/djredis.git#egg=djredis
+# mongo, requires mongodb on the default localhost port
+-e git+http://github.com/mongodb/mongo-python-driver.git#egg=pymongo
+-e git+http://github.com/hmarr/mongoengine.git#egg=mongoengine
 
 # playing with mongdb
 -e git+http://github.com/mongodb/mongo-python-driver.git#egg=pymongo

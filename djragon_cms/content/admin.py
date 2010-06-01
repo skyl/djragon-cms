@@ -1,6 +1,8 @@
 from django.contrib import admin
 from content.models import NewsArticle, Blog, Author #, CategorizedArticle
 
+from django.conf import settings
+
 
 class AuthorAdmin(admin.ModelAdmin):
     pass
@@ -10,8 +12,8 @@ class NewsArticleAdmin(admin.ModelAdmin):
 
     class Media:
         js = [
-            '/media/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
-            '/media/grappelli/tinymce_setup/tinymce_setup.js',
+            settings.TINYMCE_JS_URL,
+            settings.TINYMCE_INIT_URL,
         ]
 
 
@@ -20,8 +22,9 @@ class BlogAdmin(admin.ModelAdmin):
 
     class Media:
         js = [
-            '/media/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
-            '/media/grappelli/tinymce_setup/tinymce_setup.js',
+            settings.TINYMCE_JS_URL,
+            settings.TINYMCE_INIT_URL,
+
         ]
 '''
 class TaggedContentAdmin(admin.ModelAdmin):
@@ -29,8 +32,9 @@ class TaggedContentAdmin(admin.ModelAdmin):
 
     class Media:
         js = [
-            '/media/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
-            '/media/grappelli/tinymce_setup/tinymce_setup.js',
+            settings.TINYMCE_JS_URL,
+            settings.TINYMCE_INIT_URL,
+
         ]
 '''
 

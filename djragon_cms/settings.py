@@ -66,8 +66,7 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/grappelli/'
-#ADMIN_MEDIA_PREFIX = '/media/admin/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'xpva8t5)!lyo)$s2foayc@n2%li2gs%hi%)4sm!yknwl4pi3hd'
@@ -94,7 +93,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 # hmm.. trying to plug in the news urls .. can't get no trailing slash to work..
 #APPEND_SLASH = False
@@ -129,7 +128,7 @@ INSTALLED_APPS = (
 
     # dev stuff
     #'south', # why not give it a try? .. uh, cause it sucks?
-    'debug_toolbar', #meh, no need to keep that on for default..
+    #'debug_toolbar', #meh, no need to keep that on for default..
 
     #Queue
     'transcode',
@@ -145,8 +144,8 @@ INSTALLED_APPS = (
 FEINCMS_ADMIN_MEDIA = '/media/feincms/'
 
 #FEIN+tinymce
-TINYMCE_JS_URL = '/media/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'
-#TINYMCE_INIT_URL = '/media/grappelli/tinymce_setup/tinymce_setup.js'
+TINYMCE_JS_URL = '/media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js'
+TINYMCE_INIT_URL = '/media/admin/tinymce_setup/tinymce_setup.js'
 TINYMCE_GRAPPELLI_FILEBROWSER = True
 #grappelli and friends, tinymce and filebrowser
 GRAPPELLI_ADMIN_TITLE = 'DjragonCMS'
@@ -168,7 +167,7 @@ BROKER_VHOST = "transcode"
 TRANSCODE_LOCAL = True
 
 #debug_toolbar
-INTERNAL_IPS = ('127.0.0.1',)
-DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': False,
-}
+#INTERNAL_IPS = ('127.0.0.1',)
+#DEBUG_TOOLBAR_CONFIG = {
+#    'INTERCEPT_REDIRECTS': False,
+#}

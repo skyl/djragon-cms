@@ -22,3 +22,6 @@ feedparser
 # let's make it extend django models arbitrarily
 -e git+http://github.com/skyl/djredis.git#egg=djredis
 
+# playing with mongdb
+-e git+http://github.com/mongodb/mongo-python-driver.git#egg=pymongo
+

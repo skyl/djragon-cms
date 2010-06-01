@@ -23,6 +23,7 @@ def transcode_to_flv(src_filepath, result_filepath, width=320, height=240, **kwa
     #callback = curry(foo.delay, child=child)
     ffmpeg_result = child.read()
     log_result.delay(ffmpeg_result, src_filepath, result_filepath) #callback=callback)
+    logger.info('we just called log_result.delay')
 
 @task(ignore_result=True)
 def log_result(ffmpeg_result, src_filepath, result_filepath, callback=None, **kwargs):

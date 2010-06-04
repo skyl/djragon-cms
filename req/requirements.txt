@@ -31,6 +31,3 @@ feedparser
 -e git+http://github.com/mongodb/mongo-python-driver.git#egg=pymongo
 -e git+http://github.com/hmarr/mongoengine.git#egg=mongoengine
 
-# playing with mongdb
--e git+http://github.com/mongodb/mongo-python-driver.git#egg=pymongo
-

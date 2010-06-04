@@ -19,6 +19,16 @@ class Author(models.Model):
 
 
 import djredis.models
+from mymongo.models import Mongo, Document, Collection
+
+
+class MyDoc(Document):
+    foo = 'MyDoc wuz here'
+
+
+class MyCollection(Collection):
+    bar = 'MyCollection wuz here'
+
 
 class Blog(models.Model, DredisMixin):
     '''The blogs and opinions bit'''
@@ -33,6 +43,8 @@ class Blog(models.Model, DredisMixin):
     image = FileBrowseField("Image",
         max_length=200, format='Image', directory='images/news/', blank=True, null=True)
 
+    views = models.PositiveIntegerField(blank=True, null=True)
+    object_pickle = models.TextField(blank=True)
 
 
     # djredis http://github.com/skyl/djredis
@@ -44,7 +56,7 @@ class Blog(models.Model, DredisMixin):
     followers = djredis.models.Set()
     group = djredis.models.Zset()
 
-    
+    mongo = Mongo(document_class=MyDoc, collection_class=MyCollection)
 
     def __unicode__(self):
         return self.title
@@ -74,6 +86,8 @@ class NewsArticle(models.Model):
     tags = TagField(blank=True)
     image = FileBrowseField("Image",
         max_length=200, format='Image', directory='images/news/', blank=True, null=True)
+
+    mongo = Mongo()
 
     class Meta:
         get_latest_by = 'published_date'

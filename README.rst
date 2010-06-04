@@ -8,6 +8,17 @@ INSTALL
 #. Run ``pip install -r req/requirements.txt``
 
 
+Grappelli is a bitch
+--------------------
+
+I've decide to just use a symlink to the grappelli media, hoping it improves.
+You will have to follow some of the instructions here:
+
+http://code.google.com/p/django-grappelli/wiki/Installation_2_1
+
+Namely, checkout grappelli and then symlink the media subdirectory to $PROJECT/media/admin
+
+
 External Requirements
 ---------------------
 

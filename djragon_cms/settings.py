@@ -111,8 +111,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.comments',
-    'grappelli',
-    'filebrowser',
+    #'grappelli',
+    #'filebrowser',
     'django_extensions',
 
     'feincms',
@@ -134,9 +134,7 @@ INSTALLED_APPS = (
     'transcode',
     'celery',
 
-    #
     'djredis',
-
     'django.contrib.admin',
 )
 
@@ -151,7 +149,6 @@ TINYMCE_GRAPPELLI_FILEBROWSER = True
 GRAPPELLI_ADMIN_TITLE = 'DjragonCMS'
 URL_FILEBROWSER_MEDIA = '/media/filebrowser/'
 FILEBROWSER_MAX_UPLOAD_SIZE = 1000000000
-
 
 #Celery, rabbitmq
 BROKER_HOST = "localhost"

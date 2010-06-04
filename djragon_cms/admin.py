@@ -1,3 +1,4 @@
+'''#this was the grappelli 3.0 way?
 from django.contrib import admin
 from grappelli.sites import GrappelliSite
 
@@ -30,7 +31,7 @@ admin.site.groups = {
     },
 }
 
-'''# hmmm can't get collections to work
+# hmmm can't get collections to work
 admin.collections = {
     0: {
         'title': 'collection',

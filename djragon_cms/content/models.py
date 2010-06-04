@@ -19,7 +19,7 @@ class Author(models.Model):
 
 
 import djredis.models
-from mymongo.models import Mongo, Document, Collection
+from djongobj.models import Mongo, Document, Collection
 
 
 class MyDoc(Document):
@@ -43,8 +43,8 @@ class Blog(models.Model, DredisMixin):
     image = FileBrowseField("Image",
         max_length=200, format='Image', directory='images/news/', blank=True, null=True)
 
-    views = models.PositiveIntegerField(blank=True, null=True)
-    object_pickle = models.TextField(blank=True)
+    views = models.PositiveIntegerField(blank=True, null=True, editable=False)
+    object_pickle = models.TextField(blank=True, editable=False)
 
 
     # djredis http://github.com/skyl/djredis

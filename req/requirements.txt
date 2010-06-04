@@ -30,4 +30,5 @@ feedparser
 # mongo, requires mongodb on the default localhost port
 -e git+http://github.com/mongodb/mongo-python-driver.git#egg=pymongo
 -e git+http://github.com/hmarr/mongoengine.git#egg=mongoengine
+-e git+git@github.com:skyl/djongobj.git#egg=djongobj
 

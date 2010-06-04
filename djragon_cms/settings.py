@@ -111,8 +111,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.comments',
-    #'grappelli',
-    #'filebrowser',
+    'grappelli',
+    'filebrowser',
     'django_extensions',
 
     'feincms',

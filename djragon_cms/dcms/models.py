@@ -124,9 +124,21 @@ class LatestDescendantsByChild(models.Model):
         })
 Page.create_content_type(LatestDescendantsByChild)
 
+from django import forms
+def get_admin_fields(form, *args, **kwargs):
+    return {
+        'exclusive_subpages': forms.BooleanField(
+            label=_('Exclusive Subpages'),
+            required=False,
+            initial=form.instance.parameters.get('exclusive_subpages', False),
+            help_text=_('Exclude everything other than the application\'s content when rendering subpages.'),
+            ),
+    }
+
+
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
-        ('content.news_urls', 'News Articles'),
-        ('content.blog_urls', 'Blogs and Opinions'),
+        ('content.news_urls', 'News Articles', {'admin_fields': get_admin_fields}),
+        ('content.blog_urls', 'Blogs and Opinions', {'admin_fields': get_admin_fields}),
     ))
 Page.create_content_type(CommentsContent)
 

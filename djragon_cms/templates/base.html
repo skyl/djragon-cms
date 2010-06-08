@@ -73,7 +73,9 @@ send a search form to the context?
             {% endif %}
         </div>
             <div class="clear2" id="headingClear"></div>
+            {% comment %}
             {% ifnotequal request.path '/' %}<div id="page-title">{{ feincms_page.title }}</div>{% endifnotequal %}
+            {% endcomment %}
         <div id="navgap3">
             <div id="navgap3-border">
             </div><!-- navgap2-border -->
@@ -82,20 +84,28 @@ send a search form to the context?
 
     {% ifnotequal request.path '/' %}
     <div id="breadcrumbs">
-    <!--
-    {% feincms_parentlink of feincms_page level=2 %} 
-    or, better yet: -->
-    {% feincms_breadcrumbs feincms_page %}
+    {% if exclusive_subpages and in_appcontent_subpage %}
+        <ul class="breadcrumbs">
+            <li>
+                <a href="{% feincms_parentlink of feincms_page level=1 %}">{{ feincms_page.title }}</a>
+            </li>
+            <li>
+                {% get_fragment request "title" %}    
+            </li>
+        </ul>
+    {% else %}
+        {% feincms_breadcrumbs feincms_page %}
+    {% endif %}
     </div>
     {% endifnotequal %}
 
     <div id="content">
     {% block content %}
-    {% feincms_render_region feincms_page "main" request %}
-    {% endblock %}
-    {% block content_application %}
-    {% feincms_render_region feincms_page "rootmain" request %}
-    {% get_fragment request "appcontent" %}
+        {% if exclusive_subpages and in_appcontent_subpage %}
+            {% feincms_render_region_appcontent feincms_page "main" request %}
+        {% else %}
+            {% feincms_render_region feincms_page "main" request %}
+        {% endif %}
     {% endblock %}
     </div>
 

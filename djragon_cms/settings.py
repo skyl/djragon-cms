@@ -79,6 +79,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
     "staticfiles.context_processors.static_url",
+    "feincms.context_processors.appcontent_parameters",
 )
 
 MIDDLEWARE_CLASSES = (

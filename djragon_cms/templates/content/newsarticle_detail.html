@@ -2,6 +2,7 @@
 
 {% fragment request "title" %}{{ object.title }}{% endfragment %}
 
+{% block content %}{% endblock %}
 <div class="entry">
    <h2>{{ object.title }}</h2>
    <span class="date">{{ object.published_date|date:"d.m.Y" }}</span>

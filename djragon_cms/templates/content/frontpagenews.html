@@ -1,3 +1,5 @@
+<div id="frontpagenews">
+<h1>Front page news</h1>
 <div id="featured-news">
 {% for entry in featured %}
     {% if forloop.first %}
@@ -29,4 +31,5 @@
         <h2><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2>
     </div>
 {% endfor %}
+</div>
 </div>

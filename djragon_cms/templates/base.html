@@ -38,10 +38,6 @@ send a search form to the context?
     </div>
     <div style="clear:both;"></div>
 
-
-</div><!-- right_nav_bg -->
-</div>
-
     <div id="main-nav">
         {% feincms_navigation of feincms_page as mainp level=1,depth=1 %}
         <ul id="toplevel-nav">
@@ -84,22 +80,6 @@ send a search form to the context?
         </div><!-- navgap3 -->
     </div>
 
-    <!-- Possible alternate nav schemes 
-    <div id="full-nav">
-        <h3>full_tree_for_model</h3>
-        {% full_tree_for_model page.Page as pages %}
-        {% for p in pages %}
-            <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
-        {% endfor %}
-
-        <h3>drilldown_tree_for_node</h3>
-        {% drilldown_tree_for_node feincms_page as drilldown %}
-        {% for p in drilldown %}
-            <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
-        {% endfor %}
-    </div>
-    -->
-
     {% ifnotequal request.path '/' %}
     <div id="breadcrumbs">
     <!--
@@ -112,6 +92,10 @@ send a search form to the context?
     <div id="content">
     {% block content %}
     {% feincms_render_region feincms_page "main" request %}
+    {% endblock %}
+    {% block content_application %}
+    {% feincms_render_region feincms_page "rootmain" request %}
+    {% get_fragment request "appcontent" %}
     {% endblock %}
     </div>
 

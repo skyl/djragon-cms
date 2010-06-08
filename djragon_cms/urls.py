@@ -20,6 +20,8 @@ urlpatterns += patterns('',
     #url(r'^$|^(.*)/$', 'feincms.views.base.handler'),
     url(r'^$|^(.*)/$', 'feincms.views.applicationcontent.handler'),
     url(r'^$', 'feincms.views.base.handler', { 'path': '/news' }),
+    (r'^news/', include('content.news_urls')),
+    (r'^blogs-opinion/', include('content.blog_urls')),
 )
 
 

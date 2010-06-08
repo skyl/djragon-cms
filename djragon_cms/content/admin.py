@@ -1,7 +1,9 @@
 from django.contrib import admin
-from content.models import NewsArticle, Blog, Author #, CategorizedArticle
 
 from django.conf import settings
+
+from content.models import NewsArticle, Blog, Author #, CategorizedArticle
+from content.forms import BlogForm, NewsArticleForm
 
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -9,27 +11,21 @@ class AuthorAdmin(admin.ModelAdmin):
 
 class NewsArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
+    form = NewsArticleForm
 
+'''
     class Media:
         js = [
             settings.TINYMCE_JS_URL,
             settings.TINYMCE_INIT_URL,
         ]
-
+'''
 
 class BlogAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
+    form = BlogForm
 
-    class Media:
-        js = [
-            settings.TINYMCE_JS_URL,
-            settings.TINYMCE_INIT_URL,
-
-        ]
 '''
-class TaggedContentAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("title",)}
-
     class Media:
         js = [
             settings.TINYMCE_JS_URL,

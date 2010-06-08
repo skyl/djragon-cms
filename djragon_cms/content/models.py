@@ -41,7 +41,7 @@ class Blog(models.Model, DredisMixin):
     featured = models.BooleanField()
     tags = TagField(blank=True)
     image = FileBrowseField("Image",
-        max_length=200, format='Image', directory='images/news/', blank=True, null=True)
+        max_length=200, format='Image', directory='images/blog/', blank=True, null=True)
 
     views = models.PositiveIntegerField(blank=True, null=True, editable=False)
     object_pickle = models.TextField(blank=True, editable=False)

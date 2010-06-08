@@ -51,13 +51,6 @@ USE_L10N = True
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 #'/home/skyl/Code/github/Dragon-CMS/djragon_cms/media/'
 
-# filebrowser settings
-# http://code.google.com/p/django-filebrowser/wiki/Settings
-FILEBROWSER_DEBUG = True
-FILEBROWSER_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'filebrowser')
-FILEBROWSER_MEDIA_URL = '/media/filebrowser/'
-FILEBROWSER_DIRECTORY = 'uploads'
-
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
@@ -84,7 +77,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
-    "django.contrib.messages.context_processors.messages"
+    "django.contrib.messages.context_processors.messages",
+    "staticfiles.context_processors.static_url",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,7 +92,7 @@ MIDDLEWARE_CLASSES = (
 # hmm.. trying to plug in the news urls .. can't get no trailing slash to work..
 #APPEND_SLASH = False
 
-ROOT_URLCONF = 'djragon_cms.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, "templates"),
@@ -111,7 +105,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.comments',
-    'grappelli',
+    #'grappelli', #mutherfuckin' raza fraza
+    #http://github.com/wardi/django-filebrowser-no-grappelli, or not ...
+    'staticfiles',
+    'tinymce',
     'filebrowser',
     'django_extensions',
 
@@ -138,17 +135,37 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 )
 
+STATIC_ROOT = MEDIA_ROOT
+STATIC_URL = MEDIA_URL
+
 #fein
 FEINCMS_ADMIN_MEDIA = '/media/feincms/'
 
 #FEIN+tinymce
-TINYMCE_JS_URL = '/media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js'
-TINYMCE_INIT_URL = '/media/admin/tinymce_setup/tinymce_setup.js'
-TINYMCE_GRAPPELLI_FILEBROWSER = True
-#grappelli and friends, tinymce and filebrowser
-GRAPPELLI_ADMIN_TITLE = 'DjragonCMS'
-URL_FILEBROWSER_MEDIA = '/media/filebrowser/'
+TINYMCE_JS_URL = '/media/tiny_mce/tiny_mce.js'
+#TINYMCE_INIT_URL = '/media/admin/tinymce_setup/tinymce_setup.js'
+#TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+TINYMCE_SPELLCHECKER = True
+#TINYMCE_COMPRESSOR = True
+
+
+#URL_FILEBROWSER_MEDIA = '/media/filebrowser/'
+# filebrowser settings
+# http://code.google.com/p/django-filebrowser/wiki/Settings
+FILEBROWSER_DEBUG = True
+FILEBROWSER_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'filebrowser')
+FILEBROWSER_MEDIA_URL = '/media/filebrowser/'
+FILEBROWSER_DIRECTORY = 'uploads'
 FILEBROWSER_MAX_UPLOAD_SIZE = 1000000000
+
+
+
 
 #Celery, rabbitmq
 BROKER_HOST = "localhost"

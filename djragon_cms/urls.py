@@ -7,6 +7,8 @@ urlpatterns = patterns('',
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
+    (r'^tinymce/', include('tinymce.urls')),
+
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
@@ -20,13 +22,21 @@ urlpatterns += patterns('',
     url(r'^$', 'feincms.views.base.handler', { 'path': '/news' }),
 )
 
+
+from django.conf import settings
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'', include('staticfiles.urls')),
+    )
+
+'''
 from django.conf import settings
 if settings.DEBUG:
     urlpatterns += patterns('',
             (r'^media/(?P<path>.*)$', 'django.views.static.serve',
                         {'document_root': settings.MEDIA_ROOT}),
     )
-
+'''
 
 
 # django-tagging-ext url definitions

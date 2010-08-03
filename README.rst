@@ -18,9 +18,13 @@ The project currently expects RabbitMQ and Redis to be running locally on their 
 RabbitMQ
 ~~~~~~~~
 
-RabbitMQ is installed with::
+RabbitMQ is installed on ubuntu with::
 
     sudo apt-get install rabbitmq-server
+
+On OSX::
+
+    brew install rabbitmq
 
 You will need to setup a broker::
 
@@ -28,9 +32,9 @@ You will need to setup a broker::
 
 In short::
 
-    sudo rabbitmqctl add_user myuser mypass
-    sudo rabbitmqctl add_vhost myvhost
-    sudo rabbitmqctl set_permissions -p myvhost myuser "" ".*" ".*"
+    rabbitmqctl add_user myuser mypass
+    rabbitmqctl add_vhost myvhost
+    rabbitmqctl set_permissions -p myvhost myuser "" ".*" ".*"
 
 Set the celery settings (perhaps these should all be in local_settings).
 I used `skyl` as the user and `transcode` as the vhost.

@@ -172,10 +172,14 @@ FILEBROWSER_MAX_UPLOAD_SIZE = 1000000000
 BROKER_HOST = "localhost"
 BROKER_PORT = 5672
 BROKER_USER = "skyl"
-from local_settings import BROKER_PASSWORD
+try:
+    from local_settings import BROKER_PASSWORD
+except:
+    BROKER_PASSWORD = 'mypass'
+
 BROKER_VHOST = "transcode"
-#CELERY_RESULT_BACKEND = "amqp"
-# CELERY_IMPORTS = ("transcode.tasks",)
+CELERY_RESULT_BACKEND = "amqp"
+CELERY_IMPORTS = ("transcode.tasks",)
 #CELERY_CONCURRENCY
 
 #Transcode settings

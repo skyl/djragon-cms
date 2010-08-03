@@ -10,7 +10,7 @@
 #-e git+http://github.com/skyl/django-filebrowser.git#egg=filebrowser
 #-e git+git@github.com:skyl/django-filebrowser.git#egg=filebrowser
 
-#let' just do it our own way a screw grappelli
+#let' just do it our own way and screw grappelli
 -e svn+http://django-tinymce.googlecode.com/svn/trunk#egg=tinymce
 #-e git+http://github.com/wardi/django-filebrowser-no-grappelli.git#egg=filebrowser
 -e git+http://github.com/skyl/django-filebrowser-no-grappelli.git#egg=filebrowser
@@ -18,8 +18,9 @@
 #add this if you want it, uncomment middleware and installed apps
 #-e git+http://github.com/robhudson/django-debug-toolbar.git#egg=debug_toolbar
 
-django-extensions
-feedparser
+#django-extensions
+-e git+http://github.com/django-extensions/django-extensions.git#egg=django_extensions
+#feedparser
 
 #bah, south
 #-e hg+http://bitbucket.org/andrewgodwin/south#egg=south

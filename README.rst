@@ -1,4 +1,5 @@
-Simple, configurable, feature-rich, scalable CMS product.
+Simple, weird, unfinished, configurable, quirky, feature-rich, scalable,
+untested, experimental CMS product.
 
 INSTALL
 =======
@@ -6,17 +7,6 @@ INSTALL
 #. Make a virtualenv and activate it.
 
 #. Run ``pip install -r req/requirements.txt``
-
-
-Grappelli is a bitch
---------------------
-
-I've decide to just use a symlink to the grappelli media, hoping it improves.
-You will have to follow some of the instructions here:
-
-http://code.google.com/p/django-grappelli/wiki/Installation_2_1
-
-Namely, checkout grappelli and then symlink the media subdirectory to $PROJECT/media/admin
 
 
 External Requirements
@@ -60,11 +50,11 @@ clone::
 
     git clone http://github.com/antirez/redis.git
 
-In the repo, run make::
+In the created dir, run make::
 
     path/to/redis$ make
 
-Now, you should be able to run the server with the defaults::
+You should be able to run the server with the defaults::
 
     path/to/redis$ ./redis-server
 
@@ -74,7 +64,4 @@ Now that you have ``RabbitMQ`` and ``redis`` running, you can
 #. ``syncdb``
 
 #. ``./manage.py loaddata fixtures/*`` (let's build a good example set of objects.)
-
-#. ``./manage.py runserver --adminmedia=./media/grappelli``
-
 

@@ -4,15 +4,11 @@
 -e git+http://github.com/brosner/django-tagging.git#egg=tagging
 -e git+http://github.com/skyl/django-tagging-ext.git#egg=django-tagging-ext
 
-
-#bah, grappelli has no setup.py
 #-e svn+http://django-grappelli.googlecode.com/svn/trunk#egg=grappelli
 #-e git+http://github.com/skyl/django-filebrowser.git#egg=filebrowser
 #-e git+git@github.com:skyl/django-filebrowser.git#egg=filebrowser
 
-#let' just do it our own way and screw grappelli
 -e svn+http://django-tinymce.googlecode.com/svn/trunk#egg=tinymce
-#-e git+http://github.com/wardi/django-filebrowser-no-grappelli.git#egg=filebrowser
 -e git+http://github.com/skyl/django-filebrowser-no-grappelli.git#egg=filebrowser
 
 #add this if you want it, uncomment middleware and installed apps
